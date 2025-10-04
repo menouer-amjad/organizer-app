@@ -44,6 +44,7 @@ export default function Home() {
     <div>
       <Header/>
       <main className="flex flex-col justify-center-safe gap-[32px] row-start-2 items-center">
+        {array.length != 0 ? 
         <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
           <table className="table">
             <thead>
@@ -70,7 +71,11 @@ export default function Home() {
               )}
             </tbody>
           </table>
-        </div>
+        </div> 
+        : 
+        <div className="chat chat-start w-stretch">
+          <div className="chat-bubble chat-bubble-primary">Ajoutez un premier élément à votre liste !</div>
+        </div>}
         <div className="join ">
           <input id="elementAchatAjout" type="text" className="join-item input input-primary w-stretch" placeholder="ajouter un truc a acheter"></input>
           <input
@@ -85,6 +90,7 @@ export default function Home() {
           <button onClick={ajouterElement} className="join-item rounded-r-full btn btn-outline btn-primary">Ajouter</button>
         </div>
         {erreur && <p style={{ color: "red" }}>Veuillez entrer une valeur valide.</p>}
+        
       </main>
       <Footer/>
     </div>
